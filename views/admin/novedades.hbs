@@ -1,0 +1,46 @@
+<div class="container" style="margin-top: 50px;">
+    <div class="row">
+        <p class="text-end">Hola {{usuario}} ! <a href="/admin/login/logout" class="btn btn-danger">Cerrar sesión <i class="fas fa-sign-out-alt"></i></a></p>
+    </div>
+    {{!-- fila 1 FIN--}}
+
+    {{!-- fila 2 COMIENZO --}}
+    <div class="row">
+        <div class="col-7">
+            <h3>Listado de Novedades</h3>
+        </div>
+        <div class="col-5 text-end"> 
+            <a href="/admin/novedades/agregar" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i>Nuevo</a>
+        </div>
+    </div>
+    {{!-- fila 2 FIN --}}
+
+    {{!-- fila 3 COMIENZO --}}
+     <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr class="table-dark">
+                        <th scope="col">#</th>
+                        <th scope="col">Titulo</th>
+                        <th class="text-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each novelties}}
+                    <tr>
+                        <th scope="row">{{novelties_id}}</th>
+                        <th>{{novelties_title}}</th>
+                        <td class="text-end">
+                            <a href="/admin/novedades/modificar/{{novelties_id}}" class="btn btn-secondary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            <a href="/admin/novedades/eliminar/{{novelties_id}}" class="btn btn-secondary"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table> 
+        </div>
+     </div>
+    {{!-- fila 3 FIN --}}
+
+</div>
